@@ -13,15 +13,6 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-[//]: # (Image References)
-
-[image1]: ./output_images/Calibrate_Camera.png "Undistorted"
-[image2]: ./test_images/test_2.jpg "Road Transformed"
-[image3]: ./output_images/test_combined_binary.png "Binary Example"
-[image4]: ./output_images/test_warped.png "Warp Example"
-[image5]: ./output_images/test_fit_lines.png "Fit Visual"
-[image6]: ./output_images/out_test.png "Output"
-[video1]: ./project_solution_video_v3.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view)
   
@@ -46,11 +37,11 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ####1. Provide an example of a distortion-corrected image.
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][./test_images/test2.jpg]
+![Original Test Image](/test_images/test2.jpg)
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
-![alt text][image3]
+![Cobined Binary Image](/output_images/test_combined_binary.png)
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
