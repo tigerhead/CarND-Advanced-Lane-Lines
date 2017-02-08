@@ -40,7 +40,7 @@ I used 20 chessborad images provide. I chose use (x, y)= (9, 6) to search corner
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![alt text][./output_images/Calibrate_Camera.png]
+![Camera Calibration](/output_images/Calibrate_Camera.png)
 
 ###Pipeline (single images)
 
