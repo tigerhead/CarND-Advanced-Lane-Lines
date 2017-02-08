@@ -15,7 +15,7 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output_images/Calibrate_Camera.png.png "Undistorted"
+[image1]: ./output_images/Calibrate_Camera.png "Undistorted"
 [image2]: ./test_images/test_2.jpg "Road Transformed"
 [image3]: ./output_images/test_combined_binary.png "Binary Example"
 [image4]: ./output_images/test_warped.png "Warp Example"
@@ -40,13 +40,13 @@ I used 20 chessborad images provide. I chose use (x, y)= (9, 6) to search corner
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![alt text][image1]
+![alt text][./output_images/Calibrate_Camera.png]
 
 ###Pipeline (single images)
 
 ####1. Provide an example of a distortion-corrected image.
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+![alt text][./test_images/test2.jpg]
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
@@ -104,7 +104,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_solution_video_v3.mp4)
+Here's a [link to my video result](https://youtu.be/yWqtZVf5bBU)
 
 ---
 
