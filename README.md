@@ -27,9 +27,9 @@ The goals / steps of this project are the following:
 
 The code for this step is contained in the second and third code cells of the IPython notebook located in "p4.ipynb..  
 
-I used 20 chessborad images provide. I chose use (x, y)= (9, 6) to search corner in test images. And I created   "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
+I used 20 chessborad images provide. I chose use (x, y)= (9, 6) to search corner in test images. And I created   "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time corner was successfully detected.   `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  Corners were correctly detected in 18 out of 20 test images .
 
-I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
+Output `objpoints` and `imgpoints` were used to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  Here is undistorted test image: 
 
 ![Camera Calibration](/output_images/Calibrate_Camera.png)
 
@@ -109,10 +109,11 @@ Resolution video is uploaded as project_solution_video_v3.mp4
 
 ####  Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here are some challanges that I had in this project:
-1. Perspective transformation. I spent a lot of time trying to find good source and destination points to transform image to bird-eye view. I tested lots of combination. The source and destination points that I used work ok for this project but I don't think they are very good. I am wondering whether there is a good way to find proper source and distination sets.
+Here are some challenges that I had in this project:
+
+1. Perspective transformation. I spent a lot of time trying to find good source and destination points to transform image to bird-eye view. I tested lots of combination. The source and destination points that I used work ok for this project but I don't think they are very good. I am wondering whether there is a good way to find proper source and destination sets.
 
 2. I found my pipeline doesn't work too well on bright area even if I used HSL color space. Maybe, my threshold can be improved. And combination of different binary image can make the pipeline more robust.
 
-3. I used simple average method to get average fit of last 5 good frames. It works OK in project video but I am not sure if it is the right way to dp it.
+3. I used simple average method to get average fit of last 5 good frames. It works OK in project video but I am not sure if it is the right way to do it.
 
