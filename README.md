@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
   
 
 ---
-###Writeup / README
+###README
 
 
 ###Camera Calibration
@@ -27,17 +27,19 @@ The goals / steps of this project are the following:
 
 The code for this step is contained in the second and third code cells of the IPython notebook located in "p4.ipynb..  
 
-I used 20 chessborad images provide. I chose use (x, y)= (9, 6) to search corner in test images. And I created   "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time corner was successfully detected.   `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  Corners were correctly detected in 18 out of 20 test images .
+I used 20 chessborad images provided with this project. I chose use (x, y)= (9, 6) to search corner in test images. And I created   "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time corners were successfully detected.   `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  Corners were correctly detected in 18 out of 20 test images.
 
 Output `objpoints` and `imgpoints` were used to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  Here is undistorted test image: 
 
 ![Camera Calibration](/output_images/Calibrate_Camera.png)
 
+And camera calibration matrix was saved in a pickle file(/camera_cal_output/cmera_dist_pickle.p) for later use.
 ###Pipeline (single images)
-
-####1. Provide an example of a distortion-corrected image.
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
+I picked test2.jpg image in test_images folder as example to illustrate my image processing pipline:
 ![Original Test Image](/test_images/test2.jpg)
+####1. Provide an example of a distortion-corrected image.
+Load saved camera calibration matrix.
+
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
 
