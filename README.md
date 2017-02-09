@@ -13,7 +13,7 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-Resource code and step bu step desription in root folder: p4.ipynb
+Resource code and step by step description in root folder: p4.ipynb
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view)
   
@@ -28,7 +28,7 @@ Resource code and step bu step desription in root folder: p4.ipynb
 
 The code for this step is contained in code cells number 2 and 3 of the IPython notebook located in "p4.ipynb..  
 
-I used 20 chessborad images provided with this project. I chose use (x, y)= (9, 6) to search corner in test images. And I created   "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time corners were successfully detected.   `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  Corners were correctly detected in 18 out of 20 test images.
+I used 20 chessboard images provided with this project. I chose use (x, y)= (9, 6) to search corner in test images. And I created   "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time corners were successfully detected.   `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  Corners were correctly detected in 18 out of 20 test images.
 
 Output `objpoints` and `imgpoints` were used to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  Here is undistorted test image: 
 
@@ -77,25 +77,44 @@ On the warped bird view iamge, histogram was calculated at horizontal half line 
 
 ![Sliding Window Image](/output_images/test_window_slide.png)T
 
-![Sliding Window Image](/output_images/test_fit_lines.png)
+![Fitted line Image](/output_images/test_fit_lines.png)
 
 In video frame processing, if lane lines have been found in previous frame, in currrent frame, the lane line detection can start with position of previous found lane assuming that lane position will have very small change frame by frame. And if line found in this way doesn't work well, try to use the technique above to find lane line from scratch.
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-Cuvature of the lane is caculated use lane line polynomial coefficients, code can be found in 
+Cuvature of the lane is caculated use lane line polynomial coefficients, code can be found in is_good_dectetion function in code cell 7. 
 
-I did this in lines # through # in my code in `my_other_file.py`
+Position of vehicle with respect to center is calcuted by finding the difference between the center pixel and avearage of two pixels on detected lane line which are on the same horizontal level. Code code can be found in is_good_dectetion function in code cell 7. 
+
 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+After finding lane lines from bird eye transformed binary image, lines were drawn on a blank color image and reversely warp back to camera perspective. The reversed lane line was marked on the undistorted image, which will be final output image with lane marked in green color. 
+
+Here is an example of my result on a test image:
+
+![output image](/output_images/out_test.png)
+
+####7. Lane detection Sanity Check.
+Follow critieria are used to check if a detection is good or not:
+
+1) left and right curvature is close
+
+2)lane witdth is in certain range
+
+3)lines are clost to parallel
+
+Code can be found in is_good_dectetion function in code cell 7. 
+
+
+Here is an example of my result on a test image:
 
 ![output image](/output_images/out_test.png)
 
 ---
 
-###Pipeline (video)
+###Process (video)
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
