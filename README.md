@@ -90,10 +90,6 @@ Follow critieria are used to check if a detection is good or not:
 Code can be found in is_good_dectetion function in code cell 7. 
 
 
-Here is an example of my result on a test image:
-
-![output image](/output_images/out_test.png)
-
 ---
 
 ###Process (video)
